@@ -80,7 +80,7 @@ class db(metaclass=SingletonMeta):
         cur.close()
         return jsonify('Usuario ha sido insertado')
 
-    def get_user(self, id):
+    def getUser(self, id):
         conn = db.connect(self)
         cur = conn.cursor()
         cur.execute('SELECT * FROM users WHERE id = %s', (id,))
@@ -88,7 +88,7 @@ class db(metaclass=SingletonMeta):
         cur.close()
         return jsonify(data[0])
 
-    def update_user(self, id, name, surname, access):
+    def updateUser(self, id, name, surname, access):
         conn = db.connect(self)
         cur = conn.cursor()
         cur.execute('UPDATE users SET name = %s, surname= %s, access_point= %s WHERE id= %s', (name, surname, access, id))
@@ -96,7 +96,7 @@ class db(metaclass=SingletonMeta):
         cur.close()
         return jsonify('Usuario ha sido actualizado correctamente')
 
-    def delete_user(self, id):
+    def deleteUser(self, id):
         conn = db.connect(self)
         cur = conn.cursor()
         cur.execute('DELETE FROM users WHERE id = %s', (id,))
