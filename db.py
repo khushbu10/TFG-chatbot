@@ -1,5 +1,3 @@
-#libreria json no el de flask
-#libreria de mysql propia
 from flask import jsonify, json
 from flask_mysqldb import MySQLdb
 import sys
