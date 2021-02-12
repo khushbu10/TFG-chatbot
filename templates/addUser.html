@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block body %}
+<form action="/addUser" method="POST">
+    <h2 class="text-center"> Add User </h2>
+    <div class="form-group">
+        <input type="text" name="name" placeholder="Name" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="text" name="surname" placeholder="Surname" class="form-control">
+    </div>
+    <div class="form-group">
+        <select class="form-control" id="exampleSelect1" name="access_point">
+            <option disable></option>
+            <option value="1">Facebook Messenger</option>
+            <option value="2">Telegram</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">
+            Save
+        </button>
+    </div>
+</form>
+{% endblock %}

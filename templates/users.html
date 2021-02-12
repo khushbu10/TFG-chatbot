@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container" style="align-items: center; display: block;">
+    <header class="text-center">
+        <h4 class="display-4">Users</h4>
+    </header>
+    <div class="row rounded-lg overflow-hidden shadow">
+    {% if users %}
+    <table class="table table-striped bg-white table-sm">
+        <thead>
+            <tr>
+                <th>Name </th>
+                <th>Surname </th>
+                <th>Access Point</th>
+                <th>Conversations</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+        {% for user in users %}
+            <tr>
+                <td>{{user.1}}</td>
+                <td>{{user.2}}</td>
+                <td>{{user.3}}</td>
+                <td>{{user.4}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    </div>
+</div>
+{% endblock %}

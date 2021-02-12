@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container" style="align-items: center; display: block;">
+    <header class="text-center">
+        <h6 class="display-4">New Conversations</h6>
+    </header>
+    <div class="card card-body">
+        <p>
+            Se han creado {{conversationByDate[0]}} nuevas conversaciones entre <strong>{{dateFrom}} </strong> and 
+           <strong>{{dateTo}}</strong> 
+        </p>
+    </div>
+    
+{% endblock %}
