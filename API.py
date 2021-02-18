@@ -21,19 +21,19 @@ def page_not_found(e):
     return render_template('notFound.html', error= 404)
 
 #Mostrar todas las conversaciones
-@app.route('/showConversations', methods=['GET'])
+@app.route('/show_conversations', methods=['GET'])
 @auth_required
 def show_conversations():
     return mydb.getConversations()
   
 #Mostrar todas las conversaciones del usuario indicado
-@app.route('/showConversation/<id>', methods=['GET'])
+@app.route('/show_conversation/<id>', methods=['GET'])
 @auth_required
 def show_conversation(id):
     return mydb.getConversationUser(id)
 
 #Mostrar todos los mensajes
-@app.route('/viewMessages')
+@app.route('/view_messages')
 @auth_required
 def view_messages():
     return mydb.getMessages()
@@ -49,13 +49,13 @@ def addMessage(id):
         return mydb.addMessageConversation(id, message)
 
 #Mostrar todos los usuarios
-@app.route('/viewUsers')
+@app.route('/view_users')
 @auth_required
 def viewUser():
     return mydb.getUsers()
 
 #Añadir un usuario
-@app.route ('/addUser', methods=['POST'])
+@app.route ('/add_user', methods=['POST'])
 @auth_required
 def addUser(): 
     if 'name' in request.args and 'surname' in request.args:
@@ -72,12 +72,12 @@ def addUser():
         return 'Error: No name or surname field provided'
 
 #Editar un usuario
-@app.route ('/getUser/<id>')
+@app.route ('/get_user/<id>')
 @auth_required
 def getUser(id):
     return mydb.getUser(id)
     
-@app.route ('/updateUser/<id>', methods=['PUT'])
+@app.route ('/update_user/<id>', methods=['PUT'])
 @auth_required
 def updateUser(id):
     #cOMPROBAR PARAMETROS
@@ -89,7 +89,7 @@ def updateUser(id):
     return mydb.updateUser(name, surname, access, id)
         
 #Eliminar un usuario
-@app.route ('/deleteUser/<string:id>', methods=['DELETE'])
+@app.route ('/delete_user/<string:id>', methods=['DELETE'])
 @auth_required
 def deleteUser(id):
     return mydb.deleteUser(id)

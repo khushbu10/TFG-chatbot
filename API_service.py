@@ -10,11 +10,11 @@ class APIservice():
         pass
     
     def getAllConversations(self, username, password):
-        url = urljoin (config.host, "/showConversations")
+        url = urljoin (config.host, "/show_conversations")
         return requests.get(url, auth=HTTPBasicAuth(username, password))
 
     def getConversationbyId(self, id, username, password):
-        url = urljoin (config.host, "showConversation/%s" %(id))
+        url = urljoin (config.host, "show_conversation/%s" %(id))
         return requests.get(url,auth=HTTPBasicAuth(username, password))
 
     def addMessage(self, id, message, username, password):
@@ -26,7 +26,7 @@ class APIservice():
         return requests.post(url, params={'name': name, 'surname': surname, 'access_point':access_point}, auth=HTTPBasicAuth(username, password))
 
     def getAllUsers(self, username, password):
-        url = urljoin (config.host, "/viewUsers")
+        url = urljoin (config.host, "/view_users")
         return requests.get(url, auth=HTTPBasicAuth(username, password))
     
     def getConversationbyDate(self, dateFrom, dateTo, username, password):

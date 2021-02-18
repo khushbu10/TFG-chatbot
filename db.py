@@ -83,7 +83,7 @@ class db(metaclass=SingletonMeta):
     def getUser(self, id):
         conn = db.connect(self)
         cur = conn.cursor()
-        cur.execute('SELECT * FROM users WHERE id = %s', (id,))
+        cur.execute('SELECT * FROM users WHERE id_user = %s', (id,))
         data = cur.fetchall()
         cur.close()
         return jsonify(data[0])
